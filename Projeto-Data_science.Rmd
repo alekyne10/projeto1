@@ -1,0 +1,114 @@
+---
+title: "Projeto-data-science"
+author: "Maverick Alekyne"
+date: '2022-05-03'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+`
+```
+```{r}
+
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+library(readr)
+library(stringr)
+
+```
+
+
+```
+
+
+
+```
+```{r swoer}
+
+imdb <- readr::read_csv("C:/Users/UFC/Desktop/Manoel/imdb.csv")
+ggplot(data = imdb)
+```
+
+```
+
+##função select()
+
+```{r exercício1}
+
+# 1. Teste aplicar a função glimpse() do pacote {dplyr} à base imdb. O que ela faz?
+
+glimpse(imdb)
+
+```
+
+Resposta: a funçao glimpse inverte as lin
+
+
+```{r exercício2}
+)
+## R Markdown
+```
+
+```{r}
+#Crie uma tabela com apenas as colunas titulo, diretor, e orcamento. Salve em um objeto chamado imdb_simples.
+
+imdb_simples <- select(imdb, titulo, diretor, orcamento)
+imdb_simples
+```
+
+
+
+```{r exercicio3}
+
+#Selecione apenas as colunas ator_1, ator_2 e ator_3 usando a função auxiliar contains().
+
+select(imdb, ator_1, ator_2, ator_3)
+
+```
+
+```{r exercicio4}
+
+#Usando a função select() (e suas funções auxiliares), escreva códigos que retornem a base IMDB sem as colunas ator_1, ator_2 e ator_3. Escreva todas as soluções diferentes que você conseguir pensar.
+
+select(imdb, -ator_1, -ator_2, -ator_3, orcamento, titulo, diretor)
+```
+
+```{r exercicio 5}
+#Ordene os filmes em ordem crescente de ano e decrescente de receita e salve em um objeto chamado filmes_ordenados.
+
+filmes_ordenados <- arrange(imdb, ano, desc(receita))
+filmes_ordenados
+
+```
+
+
+```{r exercicio 6}
+
+# Selecione apenas as colunas titulo e orcamento e então ordene de forma decrescente pelo orcamento.
+select(arrange(imdb, titulo, desc(orcamento)))
+
+```
+```{r}
+
+ #Crie um objeto chamado filmes_pb apenas com filmes preto e branco.
+
+filmes_pb <- arrange(select(imdb, titulo,  cor))
+filmes_pb
+```
+```{r}
+imdb %>% 
+select(imdb, cor) %>% 
+ arrange(cor)
+```
+
+
+```
+
+
+
+
